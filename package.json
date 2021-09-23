@@ -1,10 +1,10 @@
 {
   "name": "quasar-waves",
   "version": "0.0.1",
-  "description": "A Quasar Framework app",
+  "description": "A Quasar Framework admin template",
   "productName": "Quasar Waves",
   "author": "Gil Rempto <gilberto.rempto@gmail.com>",
-  "private": true,
+  "private": false,
   "scripts": {
     "lint": "eslint --ext .js,.vue ./",
     "test": "echo \"No test specified\" && exit 0"
