@@ -22,6 +22,8 @@ import { defineComponent, computed } from "vue";
 import { useStore } from "vuex";
 
 export default defineComponent({
+  name: "WHeader",
+
   setup() {
     const $store = useStore();
 
