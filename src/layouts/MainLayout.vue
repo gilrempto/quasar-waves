@@ -1,8 +1,12 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <w-header> </w-header>
+    <w-header>
+      <template v-slot:brand>
+        <q-toolbar-title> Quasar App </q-toolbar-title>
+      </template>
+    </w-header>
 
-    <w-sidebar></w-sidebar>
+    <w-sidebar> </w-sidebar>
 
     <q-page-container>
       <router-view />
