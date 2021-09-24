@@ -1,6 +1,6 @@
 # Quasar Waves
 
-A Quasar Framework admin template
+A Quasar Framework admin template (under development)
 
 ## Install the dependencies
 
