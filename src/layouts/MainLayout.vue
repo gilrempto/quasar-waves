@@ -1,21 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleSidebar"
-        />
-
-        <q-toolbar-title> Quasar App </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
-      </q-toolbar>
-    </q-header>
+    <w-header> </w-header>
 
     <q-drawer v-model="sidebarOpen" show-if-above bordered>
       <q-list>
@@ -85,9 +70,11 @@ const linksList = [
 
 import { defineComponent, computed } from "vue";
 import { useStore } from "vuex";
+import WHeader from "components/WHeader.vue";
 
 export default defineComponent({
   components: {
+    WHeader,
     EssentialLink,
   },
   setup() {
@@ -98,14 +85,9 @@ export default defineComponent({
       set: (value) => $store.commit("layout/setSidebarOpen", value),
     });
 
-    function toggleSidebar() {
-      sidebarOpen.value = !sidebarOpen.value;
-    }
-
     return {
       essentialLinks: linksList,
       sidebarOpen,
-      toggleSidebar,
     };
   },
 });
