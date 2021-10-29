@@ -1,10 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <w-header>
-      <template v-slot:brand>
-        <q-toolbar-title> Quasar App </q-toolbar-title>
-      </template>
-    </w-header>
+    <w-header> </w-header>
 
     <w-sidebar> </w-sidebar>
 

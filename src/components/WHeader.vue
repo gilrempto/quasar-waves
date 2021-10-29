@@ -10,7 +10,9 @@
         @click="toggleSidebar"
       />
 
-      <slot name="brand"></slot>
+      <q-toolbar-title>
+        <slot name="brand"> Waves App </slot>
+      </q-toolbar-title>
 
       <div>Quasar v{{ $q.version }}</div>
     </q-toolbar>
