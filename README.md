@@ -1,4 +1,4 @@
-# Quasar Waves
+# Waves
 
 A Quasar Framework admin template (under development)
 

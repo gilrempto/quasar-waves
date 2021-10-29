@@ -2,7 +2,7 @@
   "name": "quasar-waves",
   "version": "0.0.1",
   "description": "A Quasar Framework admin template (under development)",
-  "productName": "Quasar Waves",
+  "productName": "Waves",
   "author": "Gil Rempto <gilberto.rempto@gmail.com>",
   "private": false,
   "scripts": {
