@@ -2,7 +2,7 @@
   <q-layout view="lHh Lpr lFf">
     <w-header> </w-header>
 
-    <w-sidebar> </w-sidebar>
+    <w-sidebar :items="sidebarItems"> </w-sidebar>
 
     <q-page-container>
       <router-view />
@@ -15,6 +15,48 @@ import { defineComponent, computed } from "vue";
 import WHeader from "components/WHeader.vue";
 import WSidebar from "src/components/WSidebar.vue";
 
+const sidebarItems = [
+  {
+    icon: "subdirectory_arrow_right",
+    label: "Multilevel Sample",
+    link: "#",
+    children: [
+      {
+        label: "Level One",
+        link: "#",
+      },
+      {
+        label: "Level One",
+        link: "#",
+        children: [
+          {
+            label: "Level Two",
+            link: "#",
+          },
+          {
+            label: "Level Two",
+            link: "#",
+            children: [
+              {
+                label: "Level Three",
+                link: "#",
+              },
+              {
+                label: "Level Three",
+                link: "#",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: "Level One",
+        link: "#",
+      },
+    ],
+  },
+];
+
 export default defineComponent({
   name: "MainLayout",
 
@@ -23,6 +65,10 @@ export default defineComponent({
     WSidebar,
   },
 
-  setup() {},
+  setup() {
+    return {
+      sidebarItems,
+    };
+  },
 });
 </script>
