@@ -13,9 +13,14 @@
 <script>
 import { defineComponent, computed } from "vue";
 import WHeader from "components/WHeader.vue";
-import WSidebar from "src/components/WSidebar.vue";
+import WSidebar from "components/WSidebar.vue";
 
 const sidebarItems = [
+  {
+    icon: "las la-edit",
+    label: "Forms",
+    link: "/forms",
+  },
   {
     icon: "las la-sitemap",
     label: "Multilevel Sample",
