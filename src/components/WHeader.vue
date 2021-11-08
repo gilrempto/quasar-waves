@@ -5,7 +5,7 @@
         flat
         dense
         round
-        icon="menu"
+        icon="las la-bars"
         aria-label="Menu"
         @click="toggleSidebar"
       />

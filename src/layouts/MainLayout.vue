@@ -17,7 +17,7 @@ import WSidebar from "src/components/WSidebar.vue";
 
 const sidebarItems = [
   {
-    icon: "subdirectory_arrow_right",
+    icon: "las la-sitemap",
     label: "Multilevel Sample",
     link: "#",
     children: [
