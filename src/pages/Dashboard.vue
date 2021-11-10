@@ -13,7 +13,7 @@ import { defineComponent } from "vue";
 import WPage from "components/WPage.vue";
 
 export default defineComponent({
-  name: "PageIndex",
+  name: "PageDashboard",
 
   components: {
     WPage,

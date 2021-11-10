@@ -17,12 +17,17 @@ import WSidebar from "components/WSidebar.vue";
 
 const sidebarItems = [
   {
+    icon: "las la-chart-bar",
+    label: "Dashboard",
+    link: "/",
+  },
+  {
     icon: "las la-edit",
     label: "Forms",
     link: "/forms",
   },
   {
-    icon: "las la-sitemap",
+    icon: "las la-project-diagram",
     label: "Multilevel Sample",
     link: "#",
     children: [
