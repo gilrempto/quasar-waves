@@ -27,6 +27,25 @@ const sidebarItems = [
     link: "/forms",
   },
   {
+    icon: "las la-user",
+    label: "User Pages",
+    link: "#",
+    children: [
+      {
+        label: "Login",
+        link: "/login",
+      },
+      {
+        label: "Register",
+        link: "/register",
+      },
+      {
+        label: "Forget password",
+        link: "/forget-password",
+      },
+    ],
+  },
+  {
     icon: "las la-project-diagram",
     label: "Multilevel Sample",
     link: "#",
