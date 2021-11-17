@@ -8,7 +8,7 @@
     </q-toolbar>
     <q-card-section class="q-pa-lg">
       <q-form @submit="onSubmit" novalidate class="q-gutter-sm">
-        <q-input autofocus v-model="fullName" label="Full name">
+        <q-input v-model="fullName" label="Full name">
           <template v-slot:prepend>
             <q-icon name="las la-user"></q-icon>
           </template>
