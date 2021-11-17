@@ -14,7 +14,14 @@
         <slot name="brand"> Waves App </slot>
       </q-toolbar-title>
 
-      <div>Quasar v{{ $q.version }}</div>
+      <q-btn
+        flat
+        dense
+        round
+        icon="las la-tools"
+        aria-label="Menu"
+        @click="toggleToolbar"
+      />
     </q-toolbar>
   </q-header>
 </template>
@@ -38,8 +45,18 @@ export default defineComponent({
       sidebarOpen.value = !sidebarOpen.value;
     }
 
+    const toolbarOpen = computed({
+      get: () => $store.state.layout.toolbarOpen,
+      set: (value) => $store.commit("layout/setToolbarOpen", value),
+    });
+
+    function toggleToolbar() {
+      toolbarOpen.value = !toolbarOpen.value;
+    }
+
     return {
       toggleSidebar,
+      toggleToolbar,
     };
   },
 });
