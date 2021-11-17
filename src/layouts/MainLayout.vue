@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="lHh LpR lFf">
     <w-header> </w-header>
 
     <w-sidebar :items="sidebarItems"> </w-sidebar>
