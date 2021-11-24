@@ -8,27 +8,46 @@
     </q-toolbar>
     <q-card-section class="q-pa-lg">
       <q-form @submit="onSubmit" novalidate class="q-gutter-sm">
-        <q-input v-model="fullName" label="Full name">
+        <q-input
+          v-model="model.fullName"
+          :rules="rules.fullName"
+          lazy-rules
+          label="Full name"
+        >
           <template v-slot:prepend>
             <q-icon name="las la-user"></q-icon>
           </template>
         </q-input>
 
-        <q-input type="email" v-model="email" label="E-mail">
+        <q-input
+          v-model="model.email"
+          :rules="rules.email"
+          lazy-rules
+          type="email"
+          label="E-mail"
+        >
           <template v-slot:prepend>
             <q-icon name="las la-envelope"></q-icon>
           </template>
         </q-input>
 
-        <q-input type="password" v-model="password" label="Password">
+        <q-input
+          v-model="model.password"
+          type="password"
+          :rules="rules.password"
+          lazy-rules
+          label="Password"
+        >
           <template v-slot:prepend>
             <q-icon name="las la-key"></q-icon>
           </template>
         </q-input>
 
         <q-input
+          v-model="model.passwordConfirmation"
+          :rules="rules.passwordConfirmation"
+          lazy-rules
           type="password"
-          v-model="passwordConfirmation"
           label="Confirm password"
         >
           <template v-slot:prepend>
@@ -36,11 +55,11 @@
           </template>
         </q-input>
 
-        <q-field :model-value="agreement">
+        <q-field :model-value="model.agreement" :rules="rules.agreement">
           <template v-slot:control>
             <q-checkbox
+              v-model="model.agreement"
               dense
-              v-model="agreement"
               label="I agree to the terms and conditions"
               class="q-ml-sm"
             ></q-checkbox>
@@ -64,31 +83,43 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, reactive } from "vue";
 import { useRouter } from "vue-router";
+import { useValidation } from "composables/validation";
 
 export default defineComponent({
   name: "WFormRegister",
 
   setup() {
+    const model = reactive({
+      fullName: "",
+      email: "",
+      password: "",
+      passwordConfirmation: "",
+      agreement: false,
+    });
+
+    const { required, isEmail } = useValidation();
+    const passwordsMatch = (value) =>
+      value === model.password || "Passwords didn’t match";
+    const isAgreed = (value) =>
+      required(value, "Please agree to the terms and conditions");
+    const rules = {
+      fullName: [required],
+      email: [required, isEmail],
+      password: [required],
+      passwordConfirmation: [required, passwordsMatch],
+      agreement: [isAgreed],
+    };
+
     const $router = useRouter();
-
-    const fullName = ref("");
-    const email = ref("");
-    const password = ref("");
-    const passwordConfirmation = ref("");
-    const agreement = ref(false);
-
     const onSubmit = function () {
       $router.push("/");
     };
 
     return {
-      fullName,
-      email,
-      password,
-      passwordConfirmation,
-      agreement,
+      model,
+      rules,
       onSubmit,
     };
   },

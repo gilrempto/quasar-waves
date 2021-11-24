@@ -8,13 +8,25 @@
     </q-toolbar>
     <q-card-section class="q-pa-lg">
       <q-form @submit="onSubmit" novalidate class="q-gutter-sm">
-        <q-input type="email" v-model="email" label="Email">
+        <q-input
+          v-model="model.email"
+          :rules="rules.email"
+          lazy-rules
+          type="email"
+          label="Email"
+        >
           <template v-slot:prepend>
             <q-icon name="las la-envelope"></q-icon>
           </template>
         </q-input>
 
-        <q-input type="password" v-model="password" label="Password">
+        <q-input
+          v-model="model.password"
+          :rules="rules.password"
+          lazy-rules
+          type="password"
+          label="Password"
+        >
           <template v-slot:prepend>
             <q-icon name="las la-key"></q-icon>
           </template>
@@ -30,7 +42,7 @@
         </div>
 
         <div class="row justify-between items-center q-gutter-md">
-          <q-checkbox v-model="remember" label="Remember me"></q-checkbox>
+          <q-checkbox v-model="model.remember" label="Remember me"></q-checkbox>
           <div>
             <router-link to="forget-password">Forgot password?</router-link>
           </div>
@@ -45,27 +57,34 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, reactive } from "vue";
 import { useRouter } from "vue-router";
+import { useValidation } from "composables/validation";
 
 export default defineComponent({
   name: "WFormLogin",
 
   setup() {
+    const model = reactive({
+      email: "",
+      password: "",
+      remember: false,
+    });
+
+    const { required, isEmail } = useValidation();
+    const rules = {
+      email: [required, isEmail],
+      password: [required],
+    };
+
     const $router = useRouter();
-
-    const email = ref("");
-    const password = ref("");
-    const remember = ref(false);
-
     const onSubmit = function () {
       $router.push("/");
     };
 
     return {
-      email,
-      password,
-      remember,
+      model,
+      rules,
       onSubmit,
     };
   },
