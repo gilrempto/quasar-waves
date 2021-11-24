@@ -7,17 +7,12 @@
 </template>
 
 <script>
-import { defineComponent, computed } from "vue";
-import { useStore } from "vuex";
+import { defineComponent } from "vue";
+import { useLayout } from "composables/layout";
 
 export default defineComponent({
   setup() {
-    const $store = useStore();
-
-    const toolbarOpen = computed({
-      get: () => $store.state.layout.toolbarOpen,
-      set: (value) => $store.commit("layout/setToolbarOpen", value),
-    });
+    const { toolbarOpen } = useLayout();
 
     return {
       toolbarOpen,

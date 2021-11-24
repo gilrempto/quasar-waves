@@ -27,32 +27,14 @@
 </template>
 
 <script>
-import { defineComponent, computed } from "vue";
-import { useStore } from "vuex";
+import { defineComponent } from "vue";
+import { useLayout } from "composables/layout";
 
 export default defineComponent({
   name: "WHeader",
 
   setup() {
-    const $store = useStore();
-
-    const sidebarOpen = computed({
-      get: () => $store.state.layout.sidebarOpen,
-      set: (value) => $store.commit("layout/setSidebarOpen", value),
-    });
-
-    function toggleSidebar() {
-      sidebarOpen.value = !sidebarOpen.value;
-    }
-
-    const toolbarOpen = computed({
-      get: () => $store.state.layout.toolbarOpen,
-      set: (value) => $store.commit("layout/setToolbarOpen", value),
-    });
-
-    function toggleToolbar() {
-      toolbarOpen.value = !toolbarOpen.value;
-    }
+    const { toggleSidebar, toggleToolbar } = useLayout();
 
     return {
       toggleSidebar,

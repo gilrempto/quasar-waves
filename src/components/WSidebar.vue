@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import { defineComponent, computed } from "vue";
-import { useStore } from "vuex";
+import { defineComponent } from "vue";
+import { useLayout } from "composables/layout";
 import WSidebarItem from "./WSidebarItem.vue";
 
 export default defineComponent({
@@ -31,12 +31,7 @@ export default defineComponent({
   },
 
   setup() {
-    const $store = useStore();
-
-    const sidebarOpen = computed({
-      get: () => $store.state.layout.sidebarOpen,
-      set: (value) => $store.commit("layout/setSidebarOpen", value),
-    });
+    const { sidebarOpen } = useLayout();
 
     return {
       sidebarOpen,
