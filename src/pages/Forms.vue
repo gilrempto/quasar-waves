@@ -14,6 +14,21 @@
 
   <w-toolbar>
     <q-list>
+      <q-item-label header>Design</q-item-label>
+      <q-option-group
+        :options="fieldDesigns"
+        type="radio"
+        v-model="fieldDesign"
+      ></q-option-group>
+
+      <q-item-label header>Borders</q-item-label>
+      <q-option-group
+        :options="fieldBorders"
+        type="radio"
+        v-model="fieldBorder"
+      ></q-option-group>
+
+      <q-item-label header>Examples</q-item-label>
       <q-item to="#login" clickable v-ripple>
         <q-item-section>
           <q-item-label>Login</q-item-label>
@@ -37,11 +52,12 @@
 
 <script>
 import { defineComponent, ref } from "vue";
+import { useLayout } from "composables/layout";
 import WPage from "components/WPage.vue";
 import WToolbar from "components/WToolbar.vue";
 import WFormLogin from "components/forms/WFormLogin.vue";
 import WFormRegister from "components/forms/WFormRegister.vue";
-import WFormForgetPassword from "src/components/forms/WFormForgetPassword.vue";
+import WFormForgetPassword from "components/forms/WFormForgetPassword.vue";
 
 export default defineComponent({
   name: "PageForms",
@@ -54,6 +70,29 @@ export default defineComponent({
     WFormForgetPassword,
   },
 
-  setup() {},
+  setup() {
+    const { fieldDesign, fieldBorder } = useLayout();
+
+    const fieldDesigns = [
+      { label: "Standard", value: "" },
+      { label: "Filled", value: "filled" },
+      { label: "Outlined", value: "outlined" },
+      { label: "Standout", value: "standout" },
+      { label: "Borderless", value: "borderless" },
+    ];
+
+    const fieldBorders = [
+      { label: "Standard", value: "" },
+      { label: "Square", value: "square" },
+      { label: "Rounded", value: "rounded" },
+    ];
+
+    return {
+      fieldDesign,
+      fieldDesigns,
+      fieldBorder,
+      fieldBorders,
+    };
+  },
 });
 </script>

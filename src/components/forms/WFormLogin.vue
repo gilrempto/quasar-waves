@@ -8,7 +8,7 @@
     </q-toolbar>
     <q-card-section class="q-pa-lg">
       <q-form @submit="onSubmit" novalidate class="q-gutter-sm">
-        <q-input
+        <w-input
           v-model="model.email"
           :rules="rules.email"
           lazy-rules
@@ -18,9 +18,9 @@
           <template v-slot:prepend>
             <q-icon name="las la-envelope"></q-icon>
           </template>
-        </q-input>
+        </w-input>
 
-        <q-input
+        <w-input
           v-model="model.password"
           :rules="rules.password"
           lazy-rules
@@ -30,7 +30,7 @@
           <template v-slot:prepend>
             <q-icon name="las la-key"></q-icon>
           </template>
-        </q-input>
+        </w-input>
 
         <div class="row q-mb-sm">
           <q-btn
@@ -60,9 +60,12 @@
 import { defineComponent, reactive } from "vue";
 import { useRouter } from "vue-router";
 import { useValidation } from "composables/validation";
+import WInput from "components/WInput.vue";
 
 export default defineComponent({
   name: "WFormLogin",
+
+  components: { WInput },
 
   setup() {
     const model = reactive({

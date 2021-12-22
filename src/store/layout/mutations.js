@@ -5,3 +5,11 @@ export function setSidebarOpen(state, value) {
 export function setToolbarOpen(state, value) {
   state.toolbarOpen = value;
 }
+
+export function setFieldDesign(state, value) {
+  state.fieldDesign = value;
+}
+
+export function setFieldBorder(state, value) {
+  state.fieldBorder = value;
+}

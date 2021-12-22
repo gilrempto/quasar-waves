@@ -11,7 +11,7 @@
         Enter your email address and it will be reset and sent to you.
       </p>
       <q-form @submit="onSubmit" novalidate class="q-gutter-sm">
-        <q-input
+        <w-input
           v-model="model.email"
           :rules="rules.email"
           lazy-rules
@@ -21,7 +21,7 @@
           <template v-slot:prepend>
             <q-icon name="las la-envelope"></q-icon>
           </template>
-        </q-input>
+        </w-input>
 
         <div class="row q-mb-sm">
           <q-btn
@@ -40,9 +40,12 @@
 import { defineComponent, reactive } from "vue";
 import { useRouter } from "vue-router";
 import { useValidation } from "composables/validation";
+import WInput from "components/WInput.vue";
 
 export default defineComponent({
   name: "WFormForgetPassword",
+
+  components: { WInput },
 
   setup() {
     const model = reactive({

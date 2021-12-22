@@ -8,7 +8,7 @@
     </q-toolbar>
     <q-card-section class="q-pa-lg">
       <q-form @submit="onSubmit" novalidate class="q-gutter-sm">
-        <q-input
+        <w-input
           v-model="model.fullName"
           :rules="rules.fullName"
           lazy-rules
@@ -17,9 +17,9 @@
           <template v-slot:prepend>
             <q-icon name="las la-user"></q-icon>
           </template>
-        </q-input>
+        </w-input>
 
-        <q-input
+        <w-input
           v-model="model.email"
           :rules="rules.email"
           lazy-rules
@@ -29,9 +29,9 @@
           <template v-slot:prepend>
             <q-icon name="las la-envelope"></q-icon>
           </template>
-        </q-input>
+        </w-input>
 
-        <q-input
+        <w-input
           v-model="model.password"
           type="password"
           :rules="rules.password"
@@ -41,9 +41,9 @@
           <template v-slot:prepend>
             <q-icon name="las la-key"></q-icon>
           </template>
-        </q-input>
+        </w-input>
 
-        <q-input
+        <w-input
           v-model="model.passwordConfirmation"
           :rules="rules.passwordConfirmation"
           lazy-rules
@@ -53,9 +53,9 @@
           <template v-slot:prepend>
             <q-icon name="las la-check-double"></q-icon>
           </template>
-        </q-input>
+        </w-input>
 
-        <q-field :model-value="model.agreement" :rules="rules.agreement">
+        <w-field :model-value="model.agreement" :rules="rules.agreement">
           <template v-slot:control>
             <q-checkbox
               v-model="model.agreement"
@@ -64,7 +64,7 @@
               class="q-ml-sm"
             ></q-checkbox>
           </template>
-        </q-field>
+        </w-field>
 
         <div class="row">
           <q-btn
@@ -86,9 +86,13 @@
 import { defineComponent, reactive } from "vue";
 import { useRouter } from "vue-router";
 import { useValidation } from "composables/validation";
+import WField from "components/WField.vue";
+import WInput from "components/WInput.vue";
 
 export default defineComponent({
   name: "WFormRegister",
+
+  components: { WField, WInput },
 
   setup() {
     const model = reactive({
