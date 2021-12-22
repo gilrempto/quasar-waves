@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { defineComponent, ref, toRefs } from "vue";
+import { defineComponent } from "vue";
 import { useLayout } from "composables/layout";
 
 export default defineComponent({
