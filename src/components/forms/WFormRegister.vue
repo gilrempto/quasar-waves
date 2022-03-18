@@ -61,7 +61,6 @@
               v-model="model.agreement"
               dense
               label="I agree to the terms and conditions"
-              class="q-ml-sm"
             ></q-checkbox>
           </template>
         </w-field>
