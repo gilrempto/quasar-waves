@@ -19,6 +19,7 @@
         :options="fieldDesigns"
         type="radio"
         v-model="fieldDesign"
+        class="q-option-group--custom"
       ></q-option-group>
 
       <q-item-label header>Borders</q-item-label>
@@ -26,6 +27,7 @@
         :options="fieldBorders"
         type="radio"
         v-model="fieldBorder"
+        class="q-option-group--custom"
       ></q-option-group>
 
       <q-item-label header>Examples</q-item-label>
@@ -51,7 +53,7 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 import { useLayout } from "composables/layout";
 import WPage from "components/WPage.vue";
 import WToolbar from "components/WToolbar.vue";
@@ -96,3 +98,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.q-option-group--custom {
+  margin-left: 0px !important;
+}
+</style>
