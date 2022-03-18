@@ -1,5 +1,5 @@
 <template>
-  <w-page>
+  <w-page has-toolbar>
     <h1>Forms</h1>
 
     <h2 id="login">Login</h2>
@@ -60,7 +60,7 @@ import WFormRegister from "components/forms/WFormRegister.vue";
 import WFormForgetPassword from "components/forms/WFormForgetPassword.vue";
 
 export default defineComponent({
-  name: "PageForms",
+  name: "FormsPage",
 
   components: {
     WPage,

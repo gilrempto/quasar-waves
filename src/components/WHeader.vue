@@ -2,12 +2,12 @@
   <q-header elevated>
     <q-toolbar>
       <q-btn
+        @click="toggleSidebar"
         flat
         dense
         round
         icon="las la-bars"
         aria-label="Menu"
-        @click="toggleSidebar"
       />
 
       <q-toolbar-title>
@@ -15,12 +15,13 @@
       </q-toolbar-title>
 
       <q-btn
+        v-if="hasToolbar"
+        @click="toggleToolbar"
         flat
         dense
         round
         icon="las la-tools"
         aria-label="Menu"
-        @click="toggleToolbar"
       />
     </q-toolbar>
   </q-header>
@@ -34,10 +35,11 @@ export default defineComponent({
   name: "WHeader",
 
   setup() {
-    const { toggleSidebar, toggleToolbar } = useLayout();
+    const { toggleSidebar, hasToolbar, toggleToolbar } = useLayout();
 
     return {
       toggleSidebar,
+      hasToolbar,
       toggleToolbar,
     };
   },

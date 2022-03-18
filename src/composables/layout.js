@@ -10,6 +10,11 @@ export function useLayout() {
   });
   const toggleSidebar = () => (sidebarOpen.value = !sidebarOpen.value);
 
+  const hasToolbar = computed({
+    get: () => $store.state.layout.hasToolbar,
+    set: (value) => $store.commit("layout/setHasToolbar", value),
+  });
+
   const toolbarOpen = computed({
     get: () => $store.state.layout.toolbarOpen,
     set: (value) => $store.commit("layout/setToolbarOpen", value),
@@ -29,6 +34,7 @@ export function useLayout() {
   return {
     sidebarOpen,
     toggleSidebar,
+    hasToolbar,
     toolbarOpen,
     toggleToolbar,
     fieldDesign,

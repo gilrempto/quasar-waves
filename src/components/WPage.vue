@@ -5,11 +5,26 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
+import { useLayout } from "composables/layout";
+
 export default defineComponent({
   name: "WPage",
 
-  setup() {},
+  props: {
+    hasToolbar: {
+      type: Boolean,
+      default: false,
+    },
+  },
+
+  setup(props) {
+    const { hasToolbar } = useLayout();
+
+    hasToolbar.value = ref(props.hasToolbar);
+
+    return {};
+  },
 });
 </script>
 
