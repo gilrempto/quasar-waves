@@ -56,40 +56,26 @@
   </q-card>
 </template>
 
-<script>
-import { defineComponent, reactive } from "vue";
+<script setup>
+import { reactive } from "vue";
 import { useRouter } from "vue-router";
 import { useValidation } from "composables/validation";
 import WInput from "components/WInput.vue";
 
-export default defineComponent({
-  name: "WFormLogin",
-
-  components: { WInput },
-
-  setup() {
-    const model = reactive({
-      email: "",
-      password: "",
-      remember: false,
-    });
-
-    const { required, isEmail } = useValidation();
-    const rules = {
-      email: [required, isEmail],
-      password: [required],
-    };
-
-    const $router = useRouter();
-    const onSubmit = function () {
-      $router.push("/");
-    };
-
-    return {
-      model,
-      rules,
-      onSubmit,
-    };
-  },
+const model = reactive({
+  email: "",
+  password: "",
+  remember: false,
 });
+
+const { required, isEmail } = useValidation();
+const rules = {
+  email: [required, isEmail],
+  password: [required],
+};
+
+const $router = useRouter();
+const onSubmit = function () {
+  $router.push("/");
+};
 </script>

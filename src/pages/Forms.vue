@@ -52,8 +52,7 @@
   </w-toolbar>
 </template>
 
-<script>
-import { defineComponent } from "vue";
+<script setup>
 import { useLayout } from "composables/layout";
 import WPage from "components/WPage.vue";
 import WToolbar from "components/WToolbar.vue";
@@ -61,42 +60,21 @@ import WFormLogin from "components/forms/WFormLogin.vue";
 import WFormRegister from "components/forms/WFormRegister.vue";
 import WFormForgetPassword from "components/forms/WFormForgetPassword.vue";
 
-export default defineComponent({
-  name: "FormsPage",
+const { fieldDesign, fieldBorder } = useLayout();
 
-  components: {
-    WPage,
-    WToolbar,
-    WFormLogin,
-    WFormRegister,
-    WFormForgetPassword,
-  },
+const fieldDesigns = [
+  { label: "Standard", value: "" },
+  { label: "Filled", value: "filled" },
+  { label: "Outlined", value: "outlined" },
+  { label: "Standout", value: "standout" },
+  { label: "Borderless", value: "borderless" },
+];
 
-  setup() {
-    const { fieldDesign, fieldBorder } = useLayout();
-
-    const fieldDesigns = [
-      { label: "Standard", value: "" },
-      { label: "Filled", value: "filled" },
-      { label: "Outlined", value: "outlined" },
-      { label: "Standout", value: "standout" },
-      { label: "Borderless", value: "borderless" },
-    ];
-
-    const fieldBorders = [
-      { label: "Standard", value: "" },
-      { label: "Square", value: "square" },
-      { label: "Rounded", value: "rounded" },
-    ];
-
-    return {
-      fieldDesign,
-      fieldDesigns,
-      fieldBorder,
-      fieldBorders,
-    };
-  },
-});
+const fieldBorders = [
+  { label: "Standard", value: "" },
+  { label: "Square", value: "square" },
+  { label: "Rounded", value: "rounded" },
+];
 </script>
 
 <style lang="scss" scoped>

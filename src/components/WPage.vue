@@ -4,28 +4,20 @@
   </q-page>
 </template>
 
-<script>
-import { defineComponent, ref } from "vue";
+<script setup>
+import { defineProps, ref } from "vue";
 import { useLayout } from "composables/layout";
 
-export default defineComponent({
-  name: "WPage",
-
-  props: {
-    hasToolbar: {
-      type: Boolean,
-      default: false,
-    },
-  },
-
-  setup(props) {
-    const { hasToolbar } = useLayout();
-
-    hasToolbar.value = ref(props.hasToolbar);
-
-    return {};
+const props = defineProps({
+  hasToolbar: {
+    type: Boolean,
+    default: false,
   },
 });
+
+const { hasToolbar } = useLayout();
+
+hasToolbar.value = ref(props.hasToolbar);
 </script>
 
 <style lang="scss">

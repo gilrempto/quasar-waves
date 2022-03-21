@@ -36,37 +36,23 @@
   </q-card>
 </template>
 
-<script>
-import { defineComponent, reactive } from "vue";
+<script setup>
+import { reactive } from "vue";
 import { useRouter } from "vue-router";
 import { useValidation } from "composables/validation";
 import WInput from "components/WInput.vue";
 
-export default defineComponent({
-  name: "WFormForgetPassword",
-
-  components: { WInput },
-
-  setup() {
-    const model = reactive({
-      email: "",
-    });
-
-    const { required, isEmail } = useValidation();
-    const rules = {
-      email: [required, isEmail],
-    };
-
-    const $router = useRouter();
-    const onSubmit = function () {
-      $router.push("/login");
-    };
-
-    return {
-      model,
-      rules,
-      onSubmit,
-    };
-  },
+const model = reactive({
+  email: "",
 });
+
+const { required, isEmail } = useValidation();
+const rules = {
+  email: [required, isEmail],
+};
+
+const $router = useRouter();
+const onSubmit = function () {
+  $router.push("/login");
+};
 </script>

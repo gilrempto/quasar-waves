@@ -14,28 +14,14 @@
   </q-drawer>
 </template>
 
-<script>
-import { defineComponent } from "vue";
+<script setup>
+import { defineProps } from "vue";
 import { useLayout } from "composables/layout";
 import WSidebarItem from "./WSidebarItem.vue";
 
-export default defineComponent({
-  name: "WSidebar",
-
-  components: {
-    WSidebarItem,
-  },
-
-  props: {
-    items: Array,
-  },
-
-  setup() {
-    const { sidebarOpen } = useLayout();
-
-    return {
-      sidebarOpen,
-    };
-  },
+const props = defineProps({
+  items: Array,
 });
+
+const { sidebarOpen } = useLayout();
 </script>

@@ -27,21 +27,8 @@
   </q-header>
 </template>
 
-<script>
-import { defineComponent } from "vue";
+<script setup>
 import { useLayout } from "composables/layout";
 
-export default defineComponent({
-  name: "WHeader",
-
-  setup() {
-    const { toggleSidebar, hasToolbar, toggleToolbar } = useLayout();
-
-    return {
-      toggleSidebar,
-      hasToolbar,
-      toggleToolbar,
-    };
-  },
-});
+const { toggleSidebar, hasToolbar, toggleToolbar } = useLayout();
 </script>

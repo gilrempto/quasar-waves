@@ -8,15 +8,6 @@
   </w-page>
 </template>
 
-<script>
-import { defineComponent } from "vue";
+<script setup>
 import WPage from "components/WPage.vue";
-
-export default defineComponent({
-  name: "DashboardPage",
-
-  components: {
-    WPage,
-  },
-});
 </script>

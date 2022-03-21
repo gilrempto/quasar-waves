@@ -14,22 +14,10 @@
   </q-field>
 </template>
 
-<script>
-import { defineComponent } from "vue";
+<script setup>
 import { useLayout } from "composables/layout";
 
-export default defineComponent({
-  name: "WInput",
-
-  setup() {
-    const { fieldDesign, fieldBorder } = useLayout();
-
-    return {
-      fieldDesign,
-      fieldBorder,
-    };
-  },
-});
+const { fieldDesign, fieldBorder } = useLayout();
 </script>
 
 <style lang="scss">

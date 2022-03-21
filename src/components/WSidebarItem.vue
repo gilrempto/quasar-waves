@@ -30,31 +30,20 @@
   </q-item>
 </template>
 
-<script>
-import { computed, defineComponent } from "vue";
+<script setup>
+import { computed, defineProps } from "vue";
 
-export default defineComponent({
-  name: "WSidebarItem",
-
-  props: {
-    label: String,
-    link: String,
-    icon: String,
-    children: Array,
-    level: Number,
-  },
-
-  setup(props) {
-    const headerInsetLevel = computed(() =>
-      props.level > 0 ? props.level / 3 : 0
-    );
-
-    const insetLevel = computed(() => props.level / 3);
-
-    return {
-      headerInsetLevel,
-      insetLevel,
-    };
-  },
+const props = defineProps({
+  label: String,
+  link: String,
+  icon: String,
+  children: Array,
+  level: Number,
 });
+
+const headerInsetLevel = computed(() =>
+  props.level > 0 ? props.level / 3 : 0
+);
+
+const insetLevel = computed(() => props.level / 3);
 </script>

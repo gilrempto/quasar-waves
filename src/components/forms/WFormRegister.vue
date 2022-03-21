@@ -81,50 +81,36 @@
   </q-card>
 </template>
 
-<script>
-import { defineComponent, reactive } from "vue";
+<script setup>
+import { reactive } from "vue";
 import { useRouter } from "vue-router";
 import { useValidation } from "composables/validation";
 import WField from "components/WField.vue";
 import WInput from "components/WInput.vue";
 
-export default defineComponent({
-  name: "WFormRegister",
-
-  components: { WField, WInput },
-
-  setup() {
-    const model = reactive({
-      fullName: "",
-      email: "",
-      password: "",
-      passwordConfirmation: "",
-      agreement: false,
-    });
-
-    const { required, isEmail } = useValidation();
-    const passwordsMatch = (value) =>
-      value === model.password || "Passwords didn’t match";
-    const isAgreed = (value) =>
-      required(value, "Please agree to the terms and conditions");
-    const rules = {
-      fullName: [required],
-      email: [required, isEmail],
-      password: [required],
-      passwordConfirmation: [required, passwordsMatch],
-      agreement: [isAgreed],
-    };
-
-    const $router = useRouter();
-    const onSubmit = function () {
-      $router.push("/");
-    };
-
-    return {
-      model,
-      rules,
-      onSubmit,
-    };
-  },
+const model = reactive({
+  fullName: "",
+  email: "",
+  password: "",
+  passwordConfirmation: "",
+  agreement: false,
 });
+
+const { required, isEmail } = useValidation();
+const passwordsMatch = (value) =>
+  value === model.password || "Passwords didn’t match";
+const isAgreed = (value) =>
+  required(value, "Please agree to the terms and conditions");
+const rules = {
+  fullName: [required],
+  email: [required, isEmail],
+  password: [required],
+  passwordConfirmation: [required, passwordsMatch],
+  agreement: [isAgreed],
+};
+
+const $router = useRouter();
+const onSubmit = function () {
+  $router.push("/");
+};
 </script>

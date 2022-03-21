@@ -6,17 +6,8 @@
   </q-drawer>
 </template>
 
-<script>
-import { defineComponent } from "vue";
+<script setup>
 import { useLayout } from "composables/layout";
 
-export default defineComponent({
-  setup() {
-    const { toolbarOpen } = useLayout();
-
-    return {
-      toolbarOpen,
-    };
-  },
-});
+const { toolbarOpen } = useLayout();
 </script>
