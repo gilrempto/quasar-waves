@@ -10,9 +10,9 @@
         aria-label="Menu"
       />
 
-      <q-toolbar-title>
-        <slot name="brand"> Waves App </slot>
-      </q-toolbar-title>
+      <slot name="brand">
+        <w-brand></w-brand>
+      </slot>
 
       <q-btn
         v-if="hasToolbar"
@@ -29,6 +29,7 @@
 
 <script setup>
 import { useLayout } from "composables/layout";
+import WBrand from "components/WBrand.vue";
 
 const { toggleSidebar, hasToolbar, toggleToolbar } = useLayout();
 </script>
