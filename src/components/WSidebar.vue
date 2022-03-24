@@ -15,7 +15,6 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
 import { useLayout } from "composables/layout";
 import WSidebarItem from "./WSidebarItem.vue";
 
