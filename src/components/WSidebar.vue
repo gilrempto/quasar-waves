@@ -1,5 +1,5 @@
 <template>
-  <q-drawer v-model="sidebarOpen" show-if-above bordered>
+  <q-drawer v-model="sidebarOpen" show-if-above bordered :width="sidebarWidth">
     <q-list>
       <w-sidebar-item
         v-for="item in items"
@@ -22,5 +22,5 @@ const props = defineProps({
   items: Array,
 });
 
-const { sidebarOpen } = useLayout();
+const { sidebarOpen, sidebarWidth } = useLayout();
 </script>

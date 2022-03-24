@@ -1,4 +1,4 @@
-import { ref, computed } from "vue";
+import { computed } from "vue";
 import { useStore } from "vuex";
 
 export function useLayout() {
@@ -8,7 +8,13 @@ export function useLayout() {
     get: () => $store.state.layout.sidebarOpen,
     set: (value) => $store.commit("layout/setSidebarOpen", value),
   });
+
   const toggleSidebar = () => (sidebarOpen.value = !sidebarOpen.value);
+
+  const sidebarWidth = computed({
+    get: () => $store.state.layout.sidebarWidth,
+    set: (value) => $store.commit("layout/setSidebarWidth", value),
+  });
 
   const hasToolbar = computed({
     get: () => $store.state.layout.hasToolbar,
@@ -19,7 +25,13 @@ export function useLayout() {
     get: () => $store.state.layout.toolbarOpen,
     set: (value) => $store.commit("layout/setToolbarOpen", value),
   });
+
   const toggleToolbar = () => (toolbarOpen.value = !toolbarOpen.value);
+
+  const toolbarWidth = computed({
+    get: () => $store.state.layout.sidebarWidth,
+    set: (value) => $store.commit("layout/setToolbarWidth", value),
+  });
 
   const fieldDesign = computed({
     get: () => $store.state.layout.fieldDesign,
@@ -34,9 +46,11 @@ export function useLayout() {
   return {
     sidebarOpen,
     toggleSidebar,
+    sidebarWidth,
     hasToolbar,
     toolbarOpen,
     toggleToolbar,
+    toolbarWidth,
     fieldDesign,
     fieldBorder,
   };
