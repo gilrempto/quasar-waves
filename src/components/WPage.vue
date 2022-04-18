@@ -6,7 +6,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { useLayout } from "composables/layout";
+import { useLayout } from "../composables/layout";
 
 const props = defineProps({
   hasToolbar: {

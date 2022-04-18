@@ -59,8 +59,8 @@
 <script setup>
 import { reactive } from "vue";
 import { useRouter } from "vue-router";
-import { useValidation } from "composables/validation";
-import WInput from "components/WInput.vue";
+import { useValidation } from "../composables/validation";
+import WInput from "./WInput.vue";
 
 const model = reactive({
   email: "",

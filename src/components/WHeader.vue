@@ -28,8 +28,8 @@
 </template>
 
 <script setup>
-import { useLayout } from "composables/layout";
-import WBrand from "components/WBrand.vue";
+import { useLayout } from "../composables/layout";
+import WBrand from "../components/WBrand.vue";
 
 const { toggleSidebar, hasToolbar, toggleToolbar } = useLayout();
 </script>

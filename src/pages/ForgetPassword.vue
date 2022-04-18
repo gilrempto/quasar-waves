@@ -9,5 +9,5 @@
 </template>
 
 <script setup>
-import WFormForgetPassword from "src/components/forms/WFormForgetPassword.vue";
+import WFormForgetPassword from "components/WFormForgetPassword.vue";
 </script>

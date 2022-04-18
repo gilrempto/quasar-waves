@@ -9,5 +9,5 @@
 </template>
 
 <script setup>
-import WFormRegister from "components/forms/WFormRegister.vue";
+import WFormRegister from "components/WFormRegister.vue";
 </script>

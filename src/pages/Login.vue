@@ -9,5 +9,5 @@
 </template>
 
 <script setup>
-import WFormLogin from "components/forms/WFormLogin.vue";
+import WFormLogin from "components/WFormLogin.vue";
 </script>

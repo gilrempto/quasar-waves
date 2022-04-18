@@ -12,8 +12,8 @@
 
 <script>
 import { defineComponent, computed } from "vue";
-import WHeader from "components/WHeader.vue";
-import WSidebar from "components/WSidebar.vue";
+import WHeader from "../components/WHeader.vue";
+import WSidebar from "../components/WSidebar.vue";
 
 const sidebarItems = [
   {

@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { useLayout } from "composables/layout";
+import { useLayout } from "../composables/layout";
 
 const { fieldDesign, fieldBorder } = useLayout();
 </script>

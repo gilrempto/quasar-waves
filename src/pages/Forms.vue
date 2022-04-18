@@ -56,9 +56,9 @@
 import { useLayout } from "composables/layout";
 import WPage from "components/WPage.vue";
 import WToolbar from "components/WToolbar.vue";
-import WFormLogin from "components/forms/WFormLogin.vue";
-import WFormRegister from "components/forms/WFormRegister.vue";
-import WFormForgetPassword from "components/forms/WFormForgetPassword.vue";
+import WFormLogin from "components/WFormLogin.vue";
+import WFormRegister from "components/WFormRegister.vue";
+import WFormForgetPassword from "components/WFormForgetPassword.vue";
 
 const { fieldDesign, fieldBorder } = useLayout();
 

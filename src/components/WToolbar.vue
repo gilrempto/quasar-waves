@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import { useLayout } from "composables/layout";
+import { useLayout } from "../composables/layout";
 
 const { toolbarOpen, toolbarWidth } = useLayout();
 </script>
